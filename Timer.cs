@@ -37,12 +37,16 @@ namespace Timer
         private void SerialPortDataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort serialPort = (SerialPort)sender;
+            if (serialPort.BytesToRead >= 14)
+            {
+                string receivedData = serialPort.ReadExisting();
 
-            string receivedData = serialPort.ReadExisting();
+                serialPort.DiscardInBuffer();
 
-            updateLabel(formatReceivedData(receivedData));
+                updateLabel(formatReceivedData(receivedData));
 
-            Console.WriteLine("Received data: " + receivedData);
+                Console.WriteLine("Received data: " + receivedData);
+            }            
         }
 
         public string formatReceivedData(string data)
@@ -108,7 +112,10 @@ namespace Timer
             {
                 Cbo_PortList.Items.Add(portName);
             }
-            Cbo_PortList.SelectedIndex = 0;
+            if (Cbo_PortList.Items.Count > 0)
+            {
+                Cbo_PortList.SelectedIndex = 0;
+            }
         }
 
         private void Cbo_PortList_SelectedItemChange(object sender, EventArgs e)
@@ -119,8 +126,11 @@ namespace Timer
         private void updatePortName()
         {
             Serial_Port.Close();
-            Serial_Port.PortName = Cbo_PortList.SelectedItem.ToString();
-            Serial_Port.Open();
+            if (Cbo_PortList.SelectedIndex >= 0)
+            {
+                Serial_Port.PortName = Cbo_PortList.SelectedItem.ToString();
+                Serial_Port.Open();
+            } +
         }
     }
 }
