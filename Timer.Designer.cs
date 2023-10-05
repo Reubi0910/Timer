@@ -32,6 +32,8 @@ namespace Timer
             this.Lbl_timer = new System.Windows.Forms.Label();
             this.Cbo_PortList = new System.Windows.Forms.ComboBox();
             this.Lbl_Port = new System.Windows.Forms.Label();
+            this.Img_Logo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Img_Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // Lbl_timer
@@ -63,20 +65,34 @@ namespace Timer
             this.Lbl_Port.TabIndex = 2;
             this.Lbl_Port.Text = "Port :";
             // 
+            // Img_Logo
+            // 
+            this.Img_Logo.Image = global::Timer.Properties.Resources.MicrosoftTeams_image__8_;
+            this.Img_Logo.InitialImage = global::Timer.Properties.Resources.MicrosoftTeams_image__8_;
+            this.Img_Logo.Location = new System.Drawing.Point(660, 12);
+            this.Img_Logo.Name = "Img_Logo";
+            this.Img_Logo.Size = new System.Drawing.Size(128, 128);
+            this.Img_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Img_Logo.TabIndex = 3;
+            this.Img_Logo.TabStop = false;
+            // 
             // Timer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Img_Logo);
             this.Controls.Add(this.Lbl_Port);
             this.Controls.Add(this.Cbo_PortList);
             this.Controls.Add(this.Lbl_timer);
             this.Name = "Timer";
-            this.Text = "Application Timer";
+            this.Text = "JO Divtec 2023";
             this.AutoSizeChanged += new System.EventHandler(this.Timer_Resize);
             this.Load += new System.EventHandler(this.Timer_Load);
             this.ResizeEnd += new System.EventHandler(this.Timer_Resize);
             this.SizeChanged += new System.EventHandler(this.Timer_Resize);
+            ((System.ComponentModel.ISupportInitialize)(this.Img_Logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -87,6 +103,7 @@ namespace Timer
         private System.Windows.Forms.Label Lbl_timer;
         private System.Windows.Forms.Label Lbl_Port;
         private System.Windows.Forms.ComboBox Cbo_PortList;
+        private System.Windows.Forms.PictureBox Img_Logo;
     }
 }
 

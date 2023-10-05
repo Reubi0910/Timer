@@ -58,7 +58,7 @@ namespace Timer
                 {
                     if (index == 6)
                     {
-                        text += ",";
+                        text += ".";
                     }
                     
                     text += data[index];
@@ -69,7 +69,7 @@ namespace Timer
                     }
                 }
             }
-            text = text == "0" ? "Timer" : text;
+            text = text == "0" ? "Timer" : text + " s";
             return text;
         }
 
@@ -91,11 +91,19 @@ namespace Timer
         {
             updateLabelPosition(Lbl_timer, this);
             updatePortSelectionPosition();
+            updateImagePosition();
+        }
+
+        private void updateImagePosition()
+        {
+            int imgSize = Math.Min(this.Height / 5, this.Width / 5);
+            Img_Logo.Size = new Size(imgSize, imgSize);
+            Img_Logo.Location = new Point(this.Width - imgSize - 30, 12);
         }
 
         private void updateLabelPosition(Control label, Form form)
         {
-            label.Font = new Font(label.Font.FontFamily, form.Height / 5, label.Font.Style);
+            label.Font = new Font(label.Font.FontFamily, form.Height / 6, label.Font.Style);
             label.Location = new Point(form.Size.Width / 2 - (label.Width / 2),form.Size.Height / 2 - (label.Height / 2) - 30);
         }
 
