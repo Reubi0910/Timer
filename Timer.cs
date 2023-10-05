@@ -31,7 +31,7 @@ namespace Timer
 
         private void Timer_Resize(object sender, EventArgs e)
         {
-            updateLabelPosition(Lbl_timer, this);
+            updateDisposition();
         }
 
         private void SerialPortDataReceived(object sender, SerialDataReceivedEventArgs e)
