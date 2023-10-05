@@ -130,7 +130,7 @@ namespace Timer
             {
                 Serial_Port.PortName = Cbo_PortList.SelectedItem.ToString();
                 Serial_Port.Open();
-            } +
+            }
         }
     }
 }
