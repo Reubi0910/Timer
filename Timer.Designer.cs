@@ -40,12 +40,13 @@ namespace Timer
             this.Lbl_timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_timer.Location = new System.Drawing.Point(320, 156);
             this.Lbl_timer.Name = "Lbl_timer";
-            this.Lbl_timer.Size = new System.Drawing.Size(230, 86);
+            this.Lbl_timer.Size = new System.Drawing.Size(184, 69);
             this.Lbl_timer.TabIndex = 0;
             this.Lbl_timer.Text = "Timer";
             // 
             // Cbo_PortList
             // 
+            this.Cbo_PortList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Cbo_PortList.FormattingEnabled = true;
             this.Cbo_PortList.Location = new System.Drawing.Point(12, 414);
             this.Cbo_PortList.Name = "Cbo_PortList";
