@@ -18,9 +18,10 @@ namespace Timer
         public Timer()
         {
             InitializeComponent();
+            updateDisposition();
+            updateComList();
+            updatePortName();
             Serial_Port.DataReceived += SerialPortDataReceived;
-            Serial_Port.Open();
-            updateLabelPosition(Lbl_timer, this);
         }
 
         private void Timer_Load(object sender, EventArgs e)
@@ -82,6 +83,11 @@ namespace Timer
             }
             
         }
+        private void updateDisposition()
+        {
+            updateLabelPosition(Lbl_timer, this);
+            updatePortSelectionPosition();
+        }
 
         private void updateLabelPosition(Control label, Form form)
         {
@@ -89,6 +95,35 @@ namespace Timer
             Console.WriteLine(label.Location);
             Console.WriteLine(label.Size);
             label.Location = new Point(form.Size.Width / 2 - (label.Width / 2),form.Size.Height / 2 - (label.Height / 2) - 30);
+        }
+
+        private void updatePortSelectionPosition()
+        {
+            Lbl_Port.Location = new Point(7, this.Height - 85);
+            Cbo_PortList.Location = new Point(9, this.Height - 70);
+        }
+
+        private void updateComList()
+        {
+            string[] portNames = SerialPort.GetPortNames();
+            foreach (string portName in portNames)
+            {
+                Cbo_PortList.Items.Add(portName);
+            }
+            Cbo_PortList.SelectedIndex = 0;
+        }
+
+        private void Cbo_PortList_SelectedItemChange(object sender, EventArgs e)
+        {
+            updatePortName();
+            Console.WriteLine("HWH");
+        }
+
+        private void updatePortName()
+        {
+            Serial_Port.Close();
+            Serial_Port.PortName = Cbo_PortList.SelectedItem.ToString();
+            Serial_Port.Open();
         }
 
     }
