@@ -1,7 +1,7 @@
 ﻿
 namespace Timer
 {
-    partial class Form1
+    partial class Timer
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -29,27 +29,31 @@ namespace Timer
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.Lbl_timer = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // Lbl_timer
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(291, 151);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 69);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "timer";
+            this.Lbl_timer.AutoSize = true;
+            this.Lbl_timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_timer.Location = new System.Drawing.Point(320, 156);
+            this.Lbl_timer.Name = "Lbl_timer";
+            this.Lbl_timer.Size = new System.Drawing.Size(230, 86);
+            this.Lbl_timer.TabIndex = 0;
+            this.Lbl_timer.Text = "Timer";
             // 
-            // Form1
+            // Timer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Controls.Add(this.Lbl_timer);
+            this.Name = "Timer";
+            this.Text = "Application Timer";
+            this.AutoSizeChanged += new System.EventHandler(this.Timer_Resize);
+            this.Load += new System.EventHandler(this.Timer_Load);
+            this.ResizeEnd += new System.EventHandler(this.Timer_Resize);
+            this.SizeChanged += new System.EventHandler(this.Timer_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -57,7 +61,7 @@ namespace Timer
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Lbl_timer;
     }
 }
 
