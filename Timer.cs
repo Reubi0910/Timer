@@ -92,8 +92,6 @@ namespace Timer
         private void updateLabelPosition(Control label, Form form)
         {
             label.Font = new Font(label.Font.FontFamily, form.Height / 5, label.Font.Style);
-            Console.WriteLine(label.Location);
-            Console.WriteLine(label.Size);
             label.Location = new Point(form.Size.Width / 2 - (label.Width / 2),form.Size.Height / 2 - (label.Height / 2) - 30);
         }
 
@@ -116,7 +114,6 @@ namespace Timer
         private void Cbo_PortList_SelectedItemChange(object sender, EventArgs e)
         {
             updatePortName();
-            Console.WriteLine("HWH");
         }
 
         private void updatePortName()
@@ -125,6 +122,5 @@ namespace Timer
             Serial_Port.PortName = Cbo_PortList.SelectedItem.ToString();
             Serial_Port.Open();
         }
-
     }
 }
