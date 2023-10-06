@@ -33,6 +33,7 @@ namespace Timer
             this.Cbo_PortList = new System.Windows.Forms.ComboBox();
             this.Lbl_Port = new System.Windows.Forms.Label();
             this.Img_Logo = new System.Windows.Forms.PictureBox();
+            this.Btn_ResetTimer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Img_Logo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,12 +77,23 @@ namespace Timer
             this.Img_Logo.TabIndex = 3;
             this.Img_Logo.TabStop = false;
             // 
+            // Btn_ResetTimer
+            // 
+            this.Btn_ResetTimer.Location = new System.Drawing.Point(693, 411);
+            this.Btn_ResetTimer.Name = "Btn_ResetTimer";
+            this.Btn_ResetTimer.Size = new System.Drawing.Size(95, 27);
+            this.Btn_ResetTimer.TabIndex = 4;
+            this.Btn_ResetTimer.Text = "Reset";
+            this.Btn_ResetTimer.UseVisualStyleBackColor = true;
+            this.Btn_ResetTimer.Click += new System.EventHandler(this.Btn_ResetTimer_Click);
+            // 
             // Timer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Btn_ResetTimer);
             this.Controls.Add(this.Img_Logo);
             this.Controls.Add(this.Lbl_Port);
             this.Controls.Add(this.Cbo_PortList);
@@ -104,6 +116,7 @@ namespace Timer
         private System.Windows.Forms.Label Lbl_Port;
         private System.Windows.Forms.ComboBox Cbo_PortList;
         private System.Windows.Forms.PictureBox Img_Logo;
+        private System.Windows.Forms.Button Btn_ResetTimer;
     }
 }
 
