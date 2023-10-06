@@ -43,7 +43,11 @@ namespace Timer
 
                 serialPort.DiscardInBuffer();
 
-                updateLabel(formatReceivedData(receivedData));
+                string formatedTime = formatReceivedData(receivedData);
+                if (formatedTime != "0")
+                {
+                    updateLabel(formatedTime);
+                }
 
                 Console.WriteLine("Received data: " + receivedData);
             }            
@@ -92,6 +96,12 @@ namespace Timer
             updateLabelPosition(Lbl_timer, this);
             updatePortSelectionPosition();
             updateImagePosition();
+            updateResetButtonPosition();
+        }
+
+        private void updateResetButtonPosition()
+        {
+            Btn_ResetTimer.Location = new Point(this.Width - 100, this.Height - 70);
         }
 
         private void updateImagePosition()
@@ -139,6 +149,12 @@ namespace Timer
                 Serial_Port.PortName = Cbo_PortList.SelectedItem.ToString();
                 Serial_Port.Open();
             }
+        }
+
+        private void Btn_ResetTimer_Click(object sender, EventArgs e)
+        {
+            Lbl_timer.Text = "Timer";
+            updateLabelPosition(Lbl_timer, this);
         }
     }
 }
